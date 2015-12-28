@@ -1,3 +1,9 @@
+<?php
+
+require_once ('MysqliDb.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,19 +48,16 @@
                     <a href="./">Homepage</a>
                 </li>
                 <li>
-                    <a href="current.php">Current game</a>
+                    <a href="create.php">Create a game</a>
                 </li>
                 <li>
-                    <a href="http://www.pagat.com/draw/golf.html">Instructions</a>
+                    <a href="current.php">Current game</a>
                 </li>
                 <li>
                     <a href="previous.php">Previous games</a>
                 </li>
                 <li>
                     <a href="about.html">About</a>
-                </li>
-                <li>
-                    <a href="stats.php">Stats</a>
                 </li>
             </ul>
         </div>
@@ -66,13 +69,43 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1>Previous games</h1>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        <?php 
+                            date_default_timezone_set('UTC');
+
+                            $db = new MysqliDb ('localhost', 'root', '', 'golf-cards');
+                            $cols = Array ("friendly_name","max_round","game_id ");
+                            $result = $db->get ("game_names", null, $cols); ?>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr> 
+                                        <th>Game Name</th>
+                                        <th>Highest round played</th>
+                                        <th>Date game was played</th>
+                                    </tr>
+                                </thead>
+                                <tbody>                            
+                                <?php for ($i=0; $i < count($result); $i++) { ?>
+
+                                    <tr>
+                                        <th scope="row"><?php echo $result[$i]["friendly_name"] ?></th> 
+                                        <td><?php echo $result[$i]["max_round"] ?></td>
+                                        <td><?php echo date("F j, Y, g:i a",$result[$i]["game_id"]-21600) ?></td>
+                                    </tr>
+                                    <?php }?>
+                                </tbody>
+                            </table>
+
+
                     </div>
                 </div>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
-
+    <footer class="footer">
+      <div class="container">
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+      </div>
+    </footer>
     </div>
     <!-- /#wrapper -->
 

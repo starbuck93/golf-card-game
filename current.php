@@ -121,19 +121,16 @@ if ($game) {
                     <a href="index.html">Homepage</a>
                 </li>
                 <li>
-                    <a href="current.php">Current game</a>
+                    <a href="create.php">Create a game</a>
                 </li>
                 <li>
-                    <a href="http://www.pagat.com/draw/golf.html">Instructions</a>
+                    <a href="current.php">Current game</a>
                 </li>
                 <li>
                     <a href="previous.php">Previous games</a>
                 </li>
                 <li>
                     <a href="about.html">About</a>
-                </li>
-                <li>
-                    <a href="stats.php">Stats</a>
                 </li>
             </ul>
         </div>
@@ -212,13 +209,16 @@ if ($game) {
 
                         <br>
                         <a href="#" class="btn btn-default">Join a different game</a><br>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
-
+    <footer class="footer">
+      <div class="container">
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+      </div>
+    </footer>
     </div>
     <!-- /#wrapper -->
 

@@ -99,19 +99,16 @@ if ($done) { //!empty($num_players) && count($player_names) == $num_players
                     <a href="./">Homepage</a>
                 </li>
                 <li>
-                    <a href="current.php">Current game</a>
+                    <a href="create.php">Create a game</a>
                 </li>
                 <li>
-                    <a href="http://www.pagat.com/draw/golf.html">Instructions</a>
+                    <a href="current.php">Current game</a>
                 </li>
                 <li>
                     <a href="previous.php">Previous games</a>
                 </li>
                 <li>
                     <a href="about.html">About</a>
-                </li>
-                <li>
-                    <a href="stats.php">Stats</a>
                 </li>
             </ul>
         </div>
@@ -138,7 +135,7 @@ if ($done) { //!empty($num_players) && count($player_names) == $num_players
                                   <option>9</option <?php if($num_players == 9) echo 'selected="selected"'?> >
                                   <option>10</option <?php if($num_players == 10) echo 'selected="selected"'?> >
                                 </select>
-                                <input type="hidden" name="value2" value="true">
+                                <input type="hidden" name="value2" value="true"> <br>
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </form>
                         <?php
@@ -146,7 +143,7 @@ if ($done) { //!empty($num_players) && count($player_names) == $num_players
 
 
                             <?php if(isset($_REQUEST["value2"])){ ?>
-                            <p>Okay, now enter their names in the order you want them in!</p>
+                            <p>Okay, now enter the names in whatever order you want them in!</p>
                             <form action="create.php" method="post">
                                 <input type="hidden" name="player_number" value="<?php echo $num_players ?>">
                                 <input type="hidden" name="done" value="true">
@@ -170,7 +167,11 @@ if ($done) { //!empty($num_players) && count($player_names) == $num_players
             </div>
         </div>
         <!-- /#page-content-wrapper -->
-
+    <footer class="footer">
+      <div class="container">
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+      </div>
+    </footer>
     </div>
     <!-- /#wrapper -->
 

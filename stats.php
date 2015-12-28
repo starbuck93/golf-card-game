@@ -45,9 +45,6 @@
                     <a href="current.php">Current game</a>
                 </li>
                 <li>
-                    <a href="http://www.pagat.com/draw/golf.html">Instructions</a>
-                </li>
-                <li>
                     <a href="previous.php">Previous games</a>
                 </li>
                 <li>
