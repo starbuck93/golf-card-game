@@ -31,6 +31,7 @@ if (isset($_REQUEST["goToNextRound"]) && !empty($_REQUEST["goToNextRound"])) {
         $id = $db->insert ($scoresTable, $data);
     }
     $data = Array ('max_round' => $_REQUEST["roundJustCompleted"]);
+    $db->where('game_id', $game)
     $db->update ('game_names', $data);
 }
 
